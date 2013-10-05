@@ -12,7 +12,7 @@ public class Complex {
 
 	private double real;	// requirement 1
 	private double imag;	// requirement 1
-	private double abs;		// requirement 6
+	private double abs;	// requirement 6
 	private double phase;	// requirement 7
 	
 	// requirement 2
@@ -185,5 +185,45 @@ public class Complex {
 		Z.imag = ((z2.real * z1.imag) - (z1.real * z2.imag)) / (Math.pow(z2.real, 2) + Math.pow(z2.imag, 2));
 		return Z;
 	}
+
+	/** 
+	 * toString method.<p>
+	 * 
+	 * Checks the sign from <imag> and change the format to a string. 
+	 * 
+	 * @return (real + imag *j) or (real - imag *j)
+	 */
+	// requirement 9
+	@Override
+	public String toString() {
+		if (imag >= 0){
+			return "(" + real + " + " + imag + " * j)";
+		} else {
+			return "(" + real + " - " + imag + " * j)"; 
+		}
+	}
+
+	/* (non-Javadoc)
+	 * @see java.lang.Object#equals(java.lang.Object)
+	 */
+	// requirement 10
+	@Override
+	public boolean equals(Object obj) {
+		if (this == obj)
+			return true;
+		if (obj == null)
+			return false;
+		if (getClass() != obj.getClass())
+			return false;
+		Complex other = (Complex) obj;
+		if (Double.doubleToLongBits(imag) != Double
+				.doubleToLongBits(other.imag))
+			return false;
+		if (Double.doubleToLongBits(real) != Double
+				.doubleToLongBits(other.real))
+			return false;
+		return true;
+	}
+	
 	
 }
