@@ -93,8 +93,10 @@ public class Complex {
 	 */
 	// requirement 5
 	public Complex mul(Complex z){
-		this.real = ((this.real * z.real) - (this.imag * z.imag));
+		double re;
+		re = ((this.real * z.real) - (this.imag * z.imag));
 		this.imag = ((this.real * z.imag) + (this.imag * z.real));
+		this.real = re;
 		return this;
 	}
 	
@@ -109,8 +111,10 @@ public class Complex {
 	 */	
 	// requirement 5
 	public Complex div(Complex z){
-		this.real = ((this.real * z.real) + (this.imag * z.imag)) / (Math.pow(z.real, 2) + Math.pow(z.imag, 2));
-		this.imag = ((z.real * this.imag) - (this.real * z.imag)) / (Math.pow(z.real, 2) + Math.pow(z.imag, 2));		
+		double re;
+		re = (((this.real * z.real) + (this.imag * z.imag)) / ((Math.pow(z.real, 2)) + (Math.pow(z.imag, 2))));
+		this.imag = (((z.real * this.imag) - (this.real * z.imag)) / ((Math.pow(z.real, 2)) + (Math.pow(z.imag, 2))));
+		this.real = re;
 		return this;
 	}
 	
@@ -199,6 +203,7 @@ public class Complex {
 		if (imag >= 0){
 			return "(" + real + " + " + imag + " * j)";
 		} else {
+			imag = imag * -1;
 			return "(" + real + " - " + imag + " * j)"; 
 		}
 	}
