@@ -21,24 +21,32 @@ public class ExampleComplex {
 		Complex abs = new Complex(80.2, 100.0);
 		Complex phase = new Complex(80.2, 100.0);
 
-		// static
-		System.out.println("Static: " + Complex.add(add, sub));
+		// static addition
+		System.out.println("Additon (static): " + Complex.add(add, sub));
+		// static subtraction
+		System.out.println("Subtraction (static): " + Complex.sub(add, sub));
+		// static multiplication
+		System.out.println("Multiplication (static): " + Complex.mul(add, sub));
+		// static division
+		System.out.println("Division (static): " + Complex.div(add, sub));
 		// addition
 		add.add(add);
-		System.out.println("Add: " + add.toString());
+		System.out.println("Addition: " + add.toString());
 		// subtraction
 		sub.sub(sub);
-		System.out.println("Sub: " + sub.toString());
+		System.out.println("Subtraction: " + sub.toString());
 		// multiplication
 		mul.mul(mul);
-		System.out.println("Mul: " + mul.toString());
+		System.out.println("Multiplication: " + mul.toString());
 		// division
 		div.div(div);
-		System.out.println("Div: " + div.toString());
-		// Betrag
-		System.out.println("Betrag: " + abs.getAbs());
-		// Phase
+		System.out.println("Division: " + div.toString());
+		// value
+		System.out.println("Value: " + abs.getAbs());
+		// phase
 		System.out.println("Phase: " + phase.getPhase());
+		// equals
+		System.out.println("Equals: " + add.equals(add));
 	}
 
 }
