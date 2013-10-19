@@ -245,18 +245,8 @@ public class Complex {
 	public boolean equals(Object obj) {
 		if (this == obj)
 			return true;
-		if (obj == null)
+		else
 			return false;
-		if (getClass() != obj.getClass())
-			return false;
-		Complex other = (Complex) obj;
-		if (Double.doubleToLongBits(imag) != Double
-				.doubleToLongBits(other.imag))
-			return false;
-		if (Double.doubleToLongBits(real) != Double
-				.doubleToLongBits(other.real))
-			return false;
-		return true;
 	}
 	
 	
