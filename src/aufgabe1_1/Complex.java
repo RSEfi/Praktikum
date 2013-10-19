@@ -2,11 +2,11 @@ package aufgabe1_1;
 /**
  * Complex.<p>
  * 
- * Represents a complex number z = a + i*b with real part
- * Re(z) = a and imaginary part Im(z) = b.
- *  
- * @author RSEfi
- * @version 2013-10-13
+ * Represents a complex number Z = a + i*b with real part
+ * Re(Z) = a and imaginary part Im(Z) = b.
+ *
+ * @author Jendrik Baggendorf, Daniel Dahmer
+ * @version 2013-10-16
  */
 public class Complex {
 
@@ -30,11 +30,11 @@ public class Complex {
 	
 	// requirement 4
 	/**
-	 * Get the real part of a complex number.<p>
+	 * getReal.<p>
 	 * 
-	 * Returns the actual value of the real part
+	 * Get the real part of a complex number
 	 * 
-	 * @return real
+	 * @return real the actual value of the real part of Z
 	 */
 	public double getReal() {
 		return real;
@@ -42,11 +42,11 @@ public class Complex {
 	
 	// requirement 4
 	/**
-	 * Get the imaginary part of a complex number.<p>
+	 * getImag.<p>
 	 * 
-	 * Return the actual value of the imaginary part 
+	 * Get the imaginary part of a complex number 
 	 * 
-	 * @return imag
+	 * @return imag the actual value of the imaginary part of Z
 	 */
 	public double getImag() {
 		return imag;
@@ -54,11 +54,11 @@ public class Complex {
 	
 	// requirement 6
 	/**
-	 * Get the value of a complex number.<p>
+	 * getAbs.<p>
 	 * 
-	 * Returns the actual value of Z
+	 * Get the amount of a complex number
 	 * 
-	 * @return |Z| after sqrt(real² + imag²)
+	 * @return abs the amount of Z
 	 */
 	public double getAbs() {
 		abs = Math.sqrt(Math.pow(real, 2) + Math.pow(imag, 2));
@@ -67,11 +67,11 @@ public class Complex {
 	
 	// requirement 7
 	/**
-	 * Get the phase of a complex number.<p>
+	 * getPhase.<p>
 	 * 
-	 * Returns the actual phase of Z
+	 * Get the phase of a complex number
 	 * 
-	 * @return phase after atan(imag / real)
+	 * @return phase the phase of Z
 	 */
 	public double getPhase() {
 		phase = Math.atan2(imag, real);
@@ -82,8 +82,8 @@ public class Complex {
 	/**
 	 * Addition with a complex number.<p>
 	 * 
-	 * For z1 = a + i*b and z2 = c + i*d:<br>
-	 * z1 + z2 = (a + i*b) + (c + i*d) = (a + c) + i * (b + d)
+	 * For Z1 = a + i*b and Z2 = c + i*d:<br>
+	 * Z1 + Z2 = (a + i*b) + (c + i*d) = (a + c) + i * (b + d)
 	 * 
 	 * @param z Complex number to add with
 	 * @return reference of this object after addition
@@ -98,8 +98,8 @@ public class Complex {
 	/**
 	 * Subtraction with a complex number.<p>
 	 * 
-	 * For z1 = a + i*b and z2 = c + i*d:<br>
-	 * z1 - z2 = (a + i*b) - (c + i*d) = (a - c) + i * (b - d)
+	 * For Z1 = a + i*b and Z2 = c + i*d:<br>
+	 * Z1 - Z2 = (a + i*b) - (c + i*d) = (a - c) + i * (b - d)
 	 * 
 	 * @param z Complex number to subtract with
 	 * @return reference of this object after subtraction
@@ -114,8 +114,8 @@ public class Complex {
 	/**
 	 * Multiply with a complex number.<p>
 	 * 
-	 * For z1 = a + i*b and z2 = c + i*d:<br>
-	 * z1 * z2 = (a + i*b) * (c + i*d) = (ac - bd) + i * (ad + bc)
+	 * For Z1 = a + i*b and Z2 = c + i*d:<br>
+	 * Z1 * Z2 = (a + i*b) * (c + i*d) = (ac - bd) + i * (ad + bc)
 	 * 
 	 * @param z Complex number to multiply with
 	 * @return reference of this object after multiplication
@@ -132,8 +132,8 @@ public class Complex {
 	/**
 	 * Division with a complex number.<p>
 	 * 
-	 * For z1 = a + i*b and z2 = c + i*d:<br>
-	 * z1 / z2 = [(ac + bd) / (c² + d²)] + i * [(cb - ad) / (c² + d²)]
+	 * For Z1 = a + i*b and Z2 = c + i*d:<br>
+	 * Z1 / Z2 = [(ac + bd) / (c² + d²)] + i * [(cb - ad) / (c² + d²)]
 	 * 
 	 * @param z Complex number to divide with
 	 * @return reference of this object after division
@@ -150,8 +150,8 @@ public class Complex {
 	/**
 	 * Addition with a complex number.<p>
 	 * 
-	 * For z1 = a + i*b and z2 = c + i*d:<br>
-	 * z1 + z2 = (a + i*b) + (c + i*d) = (a + c) + i * (b + d)
+	 * For Z1 = a + i*b and Z2 = c + i*d:<br>
+	 * Z1 + Z2 = (a + i*b) + (c + i*d) = (a + c) + i * (b + d)
 	 * 
 	 * @param z1 Complex number to add with
 	 * @param z2 Complex number to add with
@@ -168,8 +168,8 @@ public class Complex {
 	/**
 	 * Subtraction with a complex number.<p>
 	 * 
-	 * For z1 = a + i*b and z2 = c + i*d:<br>
-	 * z1 - z2 = (a + i*b) - (c + i*d) = (a - c) + i * (b - d)
+	 * For Z1 = a + i*b and Z2 = c + i*d:<br>
+	 * Z1 - Z2 = (a + i*b) - (c + i*d) = (a - c) + i * (b - d)
 	 * 
 	 * @param z1 Complex number to subtract with
 	 * @param z2 Complex number to subtract with
@@ -186,8 +186,8 @@ public class Complex {
 	/**
 	 * Multiply with a complex number.<p>
 	 * 
-	 * For z1 = a + i*b and z2 = c + i*d:<br>
-	 * z1 * z2 = (a + i*b) * (c + i*d) = (ac - bd) + i * (ad + bc)
+	 * For Z1 = a + i*b and Z2 = c + i*d:<br>
+	 * Z1 * Z2 = (a + i*b) * (c + i*d) = (ac - bd) + i * (ad + bc)
 	 * 
 	 * @param z1 Complex number to multiply with
 	 * @param z2 Complex number to multiply with
@@ -204,8 +204,8 @@ public class Complex {
 	/**
 	 * Division with a complex number.<p>
 	 * 
-	 * For z1 = a + i*b and z2 = c + i*d:<br>
-	 * z1 / z2 = [(ac + bd) / (c² + d²)] + i * [(cb - ad) / (c² + d²)]
+	 * For Z1 = a + i*b and Z2 = c + i*d:<br>
+	 * Z1 / Z2 = [(ac + bd) / (c² + d²)] + i * [(cb - ad) / (c² + d²)]
 	 * 
 	 * @param z1 Complex number to divide with
 	 * @param z2 Complex number to devide with
@@ -220,11 +220,12 @@ public class Complex {
 
 	// requirement 9
 	/** 
-	 * toString method.<p>
+	 * toString.<p>
 	 * 
-	 * Checks the sign from <imag> and change the format to a string. 
+	 * Checks the sign of the imaginary part and change the format to a string.<br> 
+	 * (real part + imaginary part * j) respectively (real part - imaginary part * j)
 	 * 
-	 * @return String in the following format: (real + imag *j) or (real - imag *j)
+	 * @return String in cartesian form
 	 */
 	@Override
 	public String toString() {
@@ -237,17 +238,22 @@ public class Complex {
 	}
 
 	// requirement 10
-	/* (non-Javadoc)
-	 * @see java.lang.Object#equals(java.lang.Object)
+	/** 
+	 * equals.<p>
+	 * 
+	 * Returns true,<br>
+	 * if the object passed as a parameter is a complex number,<br>
+     * the real and imaginary parts of the same as that of the object<br>
+     * for which equals is called.
+	 * 
+	 * @return Boolean value
 	 */
-
 	@Override
 	public boolean equals(Object obj) {
 		if (this == obj)
 			return true;
 		else
 			return false;
-	}
-	
+	}	
 	
 }
