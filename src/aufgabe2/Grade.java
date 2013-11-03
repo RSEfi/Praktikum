@@ -4,17 +4,30 @@
 package aufgabe2;
 
 /**
- * @author Daniel
+ * Grade.<p>
+ * 
+ * Class to create an matriculation number.<p>
+ * Implements NumberGenerator.
  *
+ * @author Jendrik Baggendorf, Daniel Dahmer
+ * @version 2013-11-03
  */
 public class Grade {
 	
-	public Student getStudent () {
-		return null;		
+	private Student student;
+	private int examinationResult;
+	
+	public Grade(Student student, int examinationResult){
+		this.student = student;
+		this.examinationResult = examinationResult;
 	}
 	
-	public int getExaminationResult () {
-		return 0;		
+	public Student getStudent(){
+		return student;
+	}
+	
+	public int getExaminationResult(){
+		return examinationResult;
 	}
 
 }

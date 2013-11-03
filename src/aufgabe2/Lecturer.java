@@ -4,19 +4,44 @@
 package aufgabe2;
 
 /**
- * @author Daniel
+ * Lecturer.<p>
+ * 
+ * Class to create a lecturer with an title.<p>
+ * extends Person<p>
  *
+ * @author Jendrik Baggendorf, Daniel Dahmer
+ * @version 2013-11-03
  */
 public class Lecturer extends Person {
 	
-	private String title;
+	private String title;		// Instance variable
 
+	/**
+	 * Lecturer.<p>
+	 * 
+	 * Constructor to create an lecturer with title
+	 * 
+	 * @param fisrtName first name of the lecturer
+	 * @param surname surname of the lecturer
+	 * @param title title of the lecturer
+	 */
 	public Lecturer(String firstName, String surname, String title) {
 		super(firstName, surname);
 		this.title = title;
 	}
+	
+	/** Constructor to create an lecturer without title
+	*
+	 * @param fisrtName first name of the lecturer
+	 * @param surname surname of the lecturer
+	*/
+	public Lecturer (String firstName, String surname){
+		super(firstName, surname);		
+	}
 
 	/**
+	 * getTitle.<p>
+	 * 
 	 * @return the title
 	 */
 	public String getTitle() {
@@ -28,17 +53,16 @@ public class Lecturer extends Person {
 	 */
 	@Override
 	public boolean equals(Object obj) {
+
 		if (this == obj)
 			return true;
-		if (!super.equals(obj))
+		if (obj == null)
 			return false;
 		if (getClass() != obj.getClass())
 			return false;
+
 		Lecturer other = (Lecturer) obj;
-		if (title == null) {
-			if (other.title != null)
-				return false;
-		} else if (!title.equals(other.title))
+		if ( (getFirstName() != other.getFirstName()) && (getSurname() != other.getSurname()) && (getTitle() != other.getTitle()) )
 			return false;
 		return true;
 	}
@@ -48,9 +72,7 @@ public class Lecturer extends Person {
 	 */
 	@Override
 	public String toString() {
-		return this.title + Lecturer.this.getSurname() + ", " + Lecturer.this.getFirstName();
+		return getTitle() + getSurname() + ", " + getFirstName();
 	}
-	
-
-	
+		
 }
