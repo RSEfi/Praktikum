@@ -57,16 +57,22 @@ public class Student extends Person implements Comparable<Student>{
 	/**
 	 * bookCourse.<p>
 	 * 
-	 * Booked an course.
+	 * Enrolling in course.
 	 * 
-	 * @param course course to booked
+	 * @param course enrolled course 
 	 */
 	public void bookCourse(Course course){
+		/*
 		for (int i = 0; i < registeredCourse.size();i++){
 			if (course.equals(registeredCourse.get(i)))
 				return;
 		}
-		registeredCourse.add(course);
+		*/
+		if (!registeredCourse.contains(course)){
+			registeredCourse.add(course);
+			course.registerStudent(this);
+		}
+		
 	}
 	
 	/**

@@ -45,7 +45,7 @@ public class Students {
 	/**
 	 * isStudentEnrolled.<p>
 	 * 
-	 * Method to checks if student is enrolled
+	 * Method to check if student is enrolled
 	 * 
 	 * @return true or false
 	 */

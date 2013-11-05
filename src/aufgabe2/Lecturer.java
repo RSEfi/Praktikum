@@ -71,7 +71,10 @@ public class Lecturer extends Person {
 	 */
 	@Override
 	public String toString() {
-		return getTitle() + getSurname() + ", " + getFirstName();
+		if (getTitle() != null)
+			return getTitle() + " " + getSurname() + ", " + getFirstName();
+		else
+			return getSurname() + ", " + getFirstName();
 	}
 		
 }
