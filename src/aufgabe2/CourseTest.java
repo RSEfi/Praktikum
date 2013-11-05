@@ -75,27 +75,27 @@ public class CourseTest {
 		generator.backdoorSetMatriculationNumber(1000003);
 		Student knuth    = studentsList.enrollStudent("Donald", "Knuth");
 		UUT.registerStudent(knuth);
-		UUT.addResult(knuth, 15);
+		UUT.addGrade(knuth, 15);
 		int[] referenceStatisticResult1 = { 0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1};
-		assertArrayEquals(referenceStatisticResult1, UUT.getExaminationResultsStatistic());
+		assertArrayEquals(referenceStatisticResult1, UUT.getGradeStatistic());
 		
 		generator.backdoorSetMatriculationNumber(1000001);
 		Student torvalds = studentsList.enrollStudent("Linus", "Torvalds");
 		UUT.registerStudent(torvalds);
-		UUT.addResult(torvalds, 0);
+		UUT.addGrade(torvalds, 0);
 		int[] referenceStatisticResult2 = { 1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1};
-		assertArrayEquals(referenceStatisticResult2, UUT.getExaminationResultsStatistic());
+		assertArrayEquals(referenceStatisticResult2, UUT.getGradeStatistic());
 		
 		generator.backdoorSetMatriculationNumber(1000002);
 		Student lamport = studentsList.enrollStudent("Leslie", "Lamport");
 		UUT.registerStudent(lamport);
 
-		UUT.addResult(lamport, 15);
+		UUT.addGrade(lamport, 15);
 		int[] referenceStatisticResult3 = { 1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,2};
-		assertArrayEquals(referenceStatisticResult3, UUT.getExaminationResultsStatistic());
+		assertArrayEquals(referenceStatisticResult3, UUT.getGradeStatistic());
 		
-		String resultList = UUT.getCourseExaminationResult();
-		Grade[] marks = UUT.getExaminationResults();
+		String resultList = UUT.getGradeString();
+		Grade[] marks = UUT.getGradeArray();
 		assertEquals("Course OP, lecturer: Prof. Dr. Lehmann, Stefan\n15 1000003, Knuth, Donald\n0 1000001, Torvalds, Linus\n15 1000002, Lamport, Leslie\n",resultList);
 	}
 	public static junit.framework.Test suite() {

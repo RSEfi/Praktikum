@@ -37,7 +37,7 @@ public class StudentsTest {
 	public void testCheckEnrollmentLong() {
 		Students studentsList = new Students();
 		NumberGenerator generator = new NumberGeneratorLinear(1000001);
-		Student.setMatriculationNumberGenerator(generator);
+		Student.setMatrNumberGenerator(generator);
 
 		assertEquals(0, studentsList.getNumberOfStudents());
 
@@ -60,7 +60,7 @@ public class StudentsTest {
 	public void testToString() {
 		Students studentsList = new Students();
 		NumberGeneratorStub generator = new NumberGeneratorStub();
-		Student.setMatriculationNumberGenerator(generator);
+		Student.setMatrNumberGenerator(generator);
 
 
 		generator.backdoorSetMatriculationNumber(1000003);
