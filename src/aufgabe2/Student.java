@@ -2,6 +2,7 @@
  * 
  */
 package aufgabe2;
+
 import java.util.*;
 
 /**
@@ -12,37 +13,27 @@ import java.util.*;
  * implements Comparable
  *
  * @author Jendrik Baggendorf, Daniel Dahmer
- * @version 2013-11-03
+ * @version 2013-11-05
  */
 public class Student extends Person implements Comparable<Student>{
 	
 	private static NumberGenerator generator;	// Class variable
 	private long matrNumber;					// Instance variable
+	private ArrayList<Course> registeredCourse = new ArrayList<Course>();
 		
 	/**
-	 * getMatrNumber.<p>
 	 * 
-	 * @return the matrNumber
+	 * @return the matriculation number
 	 */
-	public long getMatrNumber() { return matrNumber; }
+	public long getMatriculationNumber() { return matrNumber; }
 
-	/**
-	 * MatrNumber.<p>
-	 * 
-	 * keine Ahnung was ich hier mache !?
-	 * 
-	 * @param student ???
-	 * @return the matrNumber
-	 */
-	public long MatrNumber (Student student){
-		return this.MatrNumber(student);		
-	}
-	
 	/**
 	 * Student.<p>
 	 * 
 	 * Constructor who calls the names from parent class
 	 * 
+	 * @param first name
+	 * @param surname
 	 */
 	public Student (String firstName, String surname) {
 		super(firstName, surname);
@@ -57,10 +48,34 @@ public class Student extends Person implements Comparable<Student>{
 	 * 
 	 * Set the matriculation number.
 	 * 
-	 * @param generator ???
+	 * @param generator
 	 */
 	public static void setMatrNumberGenerator (NumberGenerator generator) {
 		Student.generator = generator;
+	}
+	
+	/**
+	 * bookCourse.<p>
+	 * 
+	 * Booked an course.
+	 * 
+	 * @param course course to booked
+	 */
+	public void bookCourse(Course course){
+		for (int i = 0; i < registeredCourse.size();i++){
+			if (course.equals(registeredCourse.get(i)))
+				return;
+		}
+		registeredCourse.add(course);
+	}
+	
+	/**
+	 * getBookedCourse.<p>
+	 * 
+	 * @return array with booked courses
+	 */
+	public Course[] getBookedCourses(){
+		return registeredCourse.toArray(new Course[0]);
 	}
 	
 	/* (non-Javadoc)
@@ -77,7 +92,7 @@ public class Student extends Person implements Comparable<Student>{
 			return false;
 
 		Student other = (Student) obj;
-		if ( ( getFirstName() != other.getFirstName() ) && ( getSurname() != other.getSurname() ) && ( getMatrNumber() != other.getMatrNumber() ) )
+		if ( ( getFirstName() != other.getFirstName() ) && ( getSurname() != other.getSurname() ) && ( getMatriculationNumber() != other.getMatriculationNumber() ) )
 			return false;
 		return true;
 	}
@@ -87,14 +102,14 @@ public class Student extends Person implements Comparable<Student>{
 	 */
 	@Override
 	public String toString() {
-		return getMatrNumber() + ", " + getSurname() + ", " + getFirstName();
+		return getMatriculationNumber() + ", " + getSurname() + ", " + getFirstName();
 	}
 
 	@Override
 	public int compareTo(Student other) {
-		if(getMatrNumber() < other.getMatrNumber())
+		if(getMatriculationNumber() < other.getMatriculationNumber())
 			return (-1); 
-		else if(getMatrNumber() > other.getMatrNumber())
+		else if(getMatriculationNumber() > other.getMatriculationNumber())
 			return (1); 
 		else
 			return (0);

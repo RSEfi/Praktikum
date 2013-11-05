@@ -9,7 +9,7 @@ package aufgabe2;
  * Class to create a person with first name and surname.
  *
  * @author Jendrik Baggendorf, Daniel Dahmer
- * @version 2013-11-03
+ * @version 2013-11-05
  */
 public class Person {
 	// Instance variables
@@ -30,14 +30,12 @@ public class Person {
 	}
 
 	/**
-	 * getFirstName.<p>
 	 * 
 	 * @return the first name of the person
 	 */
 	public String getFirstName() { return firstName; }
 
 	/**
-	 * getSurname.<p>
 	 * 
 	 * @return the surname of the person
 	 */
@@ -48,16 +46,16 @@ public class Person {
 	 */
 	@Override
 	public boolean equals(Object obj) {
-		/*
+
 		if (this == obj)
 			return true;
 		if (obj == null)
 			return false;
 		if (getClass() != obj.getClass())
 			return false;
-			*/
+
 		Person other = (Person) obj;
-		if ((!getFirstName().equals(other.getFirstName())) && (!getSurname().equals(other.getSurname())))
+		if ( (getFirstName() != other.getFirstName()) && (getSurname() != other.getSurname()) )
 			return false;		
 		return true;
 	}

@@ -21,7 +21,7 @@ public class CourseTest {
 		// Create the main students enrollment list.
 		Students studentsList = new Students();
 		NumberGeneratorStub generator = new NumberGeneratorStub();
-		Student.setMatriculationNumberGenerator(generator);
+		Student.setMatrNumberGenerator(generator);
 		
 		// Create course and its lecturer.
 		Lecturer lecturer = new Lecturer("Stefan","Lehmann", "Prof. Dr.");
@@ -32,7 +32,7 @@ public class CourseTest {
 		Student knuth    = studentsList.enrollStudent("Donald", "Knuth");
 
 		// Register student for course
-		UUT.register(knuth);
+		UUT.registerStudent(knuth);
 		Student[] registeredStudent = UUT.getRegisteredStudents();
 		Student[] referenceStudent = {knuth};
 		assertArrayEquals( referenceStudent, registeredStudent);
@@ -43,11 +43,11 @@ public class CourseTest {
 		// Test sorting
 		generator.backdoorSetMatriculationNumber(1000001);
 		Student torvalds = studentsList.enrollStudent("Linus", "Torvalds");
-		UUT.register(torvalds);
+		UUT.registerStudent(torvalds);
 
 		generator.backdoorSetMatriculationNumber(1000002);
 		Student lamport = studentsList.enrollStudent("Leslie", "Lamport");
-		UUT.register(lamport);
+		UUT.registerStudent(lamport);
 
 		Student[] registeredStudents = UUT.getRegisteredStudents();
 		Student[] referenceStudents = {torvalds,lamport,knuth};
@@ -70,25 +70,25 @@ public class CourseTest {
 		
 		Students studentsList = new Students();
 		NumberGeneratorStub generator = new NumberGeneratorStub();
-		Student.setMatriculationNumberGenerator(generator);
+		Student.setMatrNumberGenerator(generator);
 		
 		generator.backdoorSetMatriculationNumber(1000003);
 		Student knuth    = studentsList.enrollStudent("Donald", "Knuth");
-		UUT.register(knuth);
+		UUT.registerStudent(knuth);
 		UUT.addResult(knuth, 15);
 		int[] referenceStatisticResult1 = { 0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1};
 		assertArrayEquals(referenceStatisticResult1, UUT.getExaminationResultsStatistic());
 		
 		generator.backdoorSetMatriculationNumber(1000001);
 		Student torvalds = studentsList.enrollStudent("Linus", "Torvalds");
-		UUT.register(torvalds);
+		UUT.registerStudent(torvalds);
 		UUT.addResult(torvalds, 0);
 		int[] referenceStatisticResult2 = { 1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1};
 		assertArrayEquals(referenceStatisticResult2, UUT.getExaminationResultsStatistic());
 		
 		generator.backdoorSetMatriculationNumber(1000002);
 		Student lamport = studentsList.enrollStudent("Leslie", "Lamport");
-		UUT.register(lamport);
+		UUT.registerStudent(lamport);
 
 		UUT.addResult(lamport, 15);
 		int[] referenceStatisticResult3 = { 1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,2};

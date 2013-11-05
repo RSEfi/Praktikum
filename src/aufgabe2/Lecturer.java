@@ -10,7 +10,7 @@ package aufgabe2;
  * extends Person<p>
  *
  * @author Jendrik Baggendorf, Daniel Dahmer
- * @version 2013-11-03
+ * @version 2013-11-05
  */
 public class Lecturer extends Person {
 	
@@ -40,7 +40,6 @@ public class Lecturer extends Person {
 	}
 
 	/**
-	 * getTitle.<p>
 	 * 
 	 * @return the title
 	 */

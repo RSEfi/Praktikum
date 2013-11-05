@@ -11,7 +11,7 @@ import java.util.*;
  * Class to enroll students, determine number of enrolled students and checks if students are enrolled.<p>
  *
  * @author Jendrik Baggendorf, Daniel Dahmer
- * @version 2013-11-03
+ * @version 2013-11-05
  */
 public class Students {
 	
@@ -26,7 +26,7 @@ public class Students {
 	 * @param surname surname of the student
 	 * @return the full name of the enrolled student
 	 */
-	public Student enrolStudent (String firstName, String surname) {
+	public Student enrollStudent (String firstName, String surname) {
 		
 		Student stud = new Student(firstName, surname);
 		registeredStudents.add(stud);
@@ -34,9 +34,6 @@ public class Students {
 	}
 	
 	/**
-	 * getNumberOfStudents.<p>
-	 * 
-	 * Method to get number of enrolled students
 	 * 
 	 * @return the number of enrolled students
 	 */
@@ -68,7 +65,7 @@ public class Students {
 		Collections.sort(registeredStudents);
 		String toString = "Enrolled students:\n";
 		for (int i = 0; i < registeredStudents.size(); i++){
-			toString = toString + registeredStudents.get(i).getMatrNumber();
+			toString = toString + registeredStudents.get(i).getMatriculationNumber();
 			toString = toString + (", ");
 			toString = toString + registeredStudents.get(i).getSurname().toString();
 			toString = toString + (", ");
