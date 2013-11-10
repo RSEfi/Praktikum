@@ -13,7 +13,7 @@ import java.util.*;
  * @author Jendrik Baggendorf, Daniel Dahmer
  * @version 2013-11-05
  */
-public class Course {
+public class Course{
 	
 	private String name;
 	private Lecturer lecturer;
@@ -57,13 +57,8 @@ public class Course {
 	 * @param participant the student
 	 */
 	public void registerStudent(Student participant){
-		/*
-		if (!registeredStudents.contains(participant)){
-			registeredStudents.add(participant);
-			participant.bookCourse(this);
-		}
-		*/
-		for (int i = 0; i < registeredStudents.size();i++){
+		
+		for (int i = 0; i < registeredStudents.size(); i++){
 			if (participant.equals(registeredStudents.get(i)))
 				return;
 		}

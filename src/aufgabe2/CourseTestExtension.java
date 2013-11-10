@@ -19,12 +19,14 @@ public class CourseTestExtension {
 		Students studentsList = new Students();
 		
 		// Create course and its lecturer.
-		Lecturer lecturer = new Lecturer("Stefan","Lehmann", "Prof. Dr.");
-		Course UUT = new Course("OP", lecturer );
-
-		// Enroll one student.
+		Lecturer lecturer1 = new Lecturer("Stefan","Lehmann", "Prof. Dr.");
+		Course UUT = new Course("OP", lecturer1 );
+		Lecturer lecturer2 = new Lecturer("Björn Ingo","Lange", "Prof. Dr.");
+		Course OOT = new Course("NS", lecturer2 );
+		
+		// Enroll the students.
 		Student knuth    = studentsList.enrollStudent("Donald", "Knuth");
-		Student alf    = studentsList.enrollStudent("Muller", "Alf");
+		Student alf    = studentsList.enrollStudent("Müller", "Alf");
 
 		// Register student -> course
 		knuth.bookCourse(UUT);
@@ -32,12 +34,11 @@ public class CourseTestExtension {
 		Student[] referenceStudent = {knuth};
 		assertArrayEquals( referenceStudent, registeredStudent);
 		
-		// Register course -> student
-		UUT.registerStudent(alf);
+		// Register course -> student		
+		OOT.registerStudent(alf);
 		Course[] bookedCourses = alf.getBookedCourses();
-		Course[] referenceCourses = {UUT};
-		assertArrayEquals( referenceCourses, bookedCourses);
-		
+		Course[] referenceCourses = {OOT};
+		assertArrayEquals(referenceCourses, bookedCourses);
 	}
 
 }
