@@ -13,7 +13,7 @@ import java.util.*;
  * implements Comparable
  *
  * @author Jendrik Baggendorf, Daniel Dahmer
- * @version 2013-11-05
+ * @version 2013-11-12
  */
 public class Student extends Person implements Comparable<Student>{
 	
@@ -64,8 +64,9 @@ public class Student extends Person implements Comparable<Student>{
 	public void bookCourse(Course course){
 		
 		for (int i = 0; i < registeredCourse.size();i++){
-			if (course.equals(registeredCourse.get(i)))
-				return;
+			if (course.equals(registeredCourse.get(i))){
+				return;				
+			}
 		}
 		registeredCourse.add(course);
 		course.registerStudent(this);
@@ -94,9 +95,9 @@ public class Student extends Person implements Comparable<Student>{
 			return false;
 
 		Student other = (Student) obj;
-		if ( ( getFirstName() != other.getFirstName() ) && ( getSurname() != other.getSurname() ) && ( getMatriculationNumber() != other.getMatriculationNumber() ) )
-			return false;
-		return true;
+		if ( ( getFirstName() == other.getFirstName() ) && ( getSurname() == other.getSurname() ) && ( getMatriculationNumber() == other.getMatriculationNumber() ) )
+			return true;
+		return false;
 	}
 
 	/* (non-Javadoc)

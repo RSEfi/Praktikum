@@ -8,8 +8,8 @@ import static org.junit.Assert.*;
 import org.junit.Test;
 
 /**
- * @author Daniel
- *
+ * @author Jendrik Baggendorf, Daniel Dahmer
+ * @version 2013-11-12
  */
 public class CourseTestExtension {
 
@@ -21,13 +21,13 @@ public class CourseTestExtension {
 		// Create course and its lecturer.
 		Lecturer lecturer1 = new Lecturer("Stefan","Lehmann", "Prof. Dr.");
 		Course UUT = new Course("OP", lecturer1 );
-		Lecturer lecturer2 = new Lecturer("Björn Ingo","Lange", "Prof. Dr.");
-		Course OOT = new Course("NS", lecturer2 );
+		//Lecturer lecturer2 = new Lecturer("Björn Ingo","Lange", "Prof. Dr.");
+		//Course OOT = new Course("NS", lecturer2 );
 		
 		// Enroll the students.
 		Student knuth    = studentsList.enrollStudent("Donald", "Knuth");
 		Student alf    = studentsList.enrollStudent("Müller", "Alf");
-
+		
 		// Register student -> course
 		knuth.bookCourse(UUT);
 		Student[] registeredStudent = UUT.getRegisteredStudents();
@@ -35,9 +35,9 @@ public class CourseTestExtension {
 		assertArrayEquals( referenceStudent, registeredStudent);
 		
 		// Register course -> student		
-		OOT.registerStudent(alf);
+		UUT.registerStudent(alf);
 		Course[] bookedCourses = alf.getBookedCourses();
-		Course[] referenceCourses = {OOT};
+		Course[] referenceCourses = {UUT};
 		assertArrayEquals(referenceCourses, bookedCourses);
 	}
 

@@ -7,7 +7,7 @@ package aufgabe2;
  * SivleExapmle.<p>
  * 
  * @author Jendrik Baggendorf, Daniel Dahmer
- * @version 2013-11-05
+ * @version 2013-11-12
  */
 public class SivleExample {
 	
@@ -29,6 +29,7 @@ public class SivleExample {
 
 	//Test Student
 		Student stud1 = new Student ("Alfred", "Dissimo");
+		stud1.setMatrNumberGenerator(number);
 		Student stud2 = new Student ("Heiner", "Lauterbach");
 		Student stud3 = new Student ("Fridrich", "Ebert");
 		Student stud4 = new Student ("Ruhige", "Kugel");
@@ -40,6 +41,7 @@ public class SivleExample {
 		String toString = stud1.toString();		
 		System.out.printf("Nachname: %s, Vorname: %s, Matrikelnummer: %d \n", stud1.getSurname(), stud1.getFirstName(), stud1.getMatriculationNumber());
 		System.out.printf("%s\n\n", toString);
+	
 		
 	//Test Lecturer
 		Lecturer lect1 = new Lecturer ("Moin", "Moin");
@@ -76,7 +78,10 @@ public class SivleExample {
 		oop.registerStudent(stud5);
 		oop.registerStudent(stud6);
 		oop.registerStudent(stud7);
-			
+		
+		
+		//System.out.printf("Debug: %d\n" , oop.getRegisteredStudents().length);
+		
 		oop.addGrade(stud1, 5);
 		oop.addGrade(stud7, 12);
 		oop.addGrade(stud3, 15);

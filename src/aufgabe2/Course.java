@@ -11,7 +11,7 @@ import java.util.*;
  * Class to create a 
  *
  * @author Jendrik Baggendorf, Daniel Dahmer
- * @version 2013-11-05
+ * @version 2013-11-12
  */
 public class Course{
 	
@@ -59,8 +59,10 @@ public class Course{
 	public void registerStudent(Student participant){
 		
 		for (int i = 0; i < registeredStudents.size(); i++){
-			if (participant.equals(registeredStudents.get(i)))
+			if (participant.equals(registeredStudents.get(i))){
+				//System.out.printf("test : i=%d %s" , i, registeredStudents.get(i));
 				return;
+			}
 		}
 		registeredStudents.add(participant);
 		participant.bookCourse(this);
