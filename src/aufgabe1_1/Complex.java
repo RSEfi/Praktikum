@@ -237,23 +237,33 @@ public class Complex {
 		}
 	}
 
-	// requirement 10
-	/** 
-	 * equals.<p>
-	 * 
-	 * Returns true,<br>
-	 * if the object passed as a parameter is a complex number,<br>
-     * the real and imaginary parts of the same as that of the object<br>
-     * for which equals is called.
-	 * 
-	 * @return Boolean value
+	/* (non-Javadoc)
+	 * @see java.lang.Object#hashCode()
 	 */
 	@Override
+	public int hashCode() {
+		final int prime = 31;
+		int result = 1;
+		long temp;
+		temp = Double.doubleToLongBits(imag);
+		result = prime * result + (int) (temp ^ (temp >>> 32));
+		temp = Double.doubleToLongBits(real);
+		result = prime * result + (int) (temp ^ (temp >>> 32));
+		return result;
+	}
+
+	/* (non-Javadoc)
+	 * @see java.lang.Object#equals(java.lang.Object)
+	 */
+	// requirement 10
+	@Override
 	public boolean equals(Object obj) {
-		if (this == obj)
+		Complex other = (Complex) obj;
+		if ( ( this.getReal() == other.getReal() ) && ( this.getImag() == other.getImag() ) ){
 			return true;
+		}
 		else
 			return false;
-	}	
+	}
 	
 }
