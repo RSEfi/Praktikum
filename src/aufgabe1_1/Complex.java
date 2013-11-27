@@ -6,7 +6,7 @@ package aufgabe1_1;
  * Re(Z) = a and imaginary part Im(Z) = b.
  *
  * @author Jendrik Baggendorf, Daniel Dahmer
- * @version 2013-10-16
+ * @version 2013-11-27
  */
 public class Complex {
 
@@ -229,11 +229,11 @@ public class Complex {
 	 */
 	@Override
 	public String toString() {
+		double im = imag * -1;
 		if (imag >= 0){
 			return "(" + real + " + " + imag + " * j)";
 		} else {
-			imag = imag * -1;
-			return "(" + real + " - " + imag + " * j)"; 
+			return "(" + real + " - " + im + " * j)"; 
 		}
 	}
 
